@@ -69,7 +69,7 @@ public class CacheDispatcher extends Thread {
 
     @Override
     public void run() {
-        if (DEBUG) VolleyLog.v("start new dispatcher");
+        if (DEBUG) VolleyLog.v("start new cache dispatcher" + Thread.currentThread().getId());
         Thread.currentThread().setPriority(Thread.MAX_PRIORITY);
 
         cache.initialize();

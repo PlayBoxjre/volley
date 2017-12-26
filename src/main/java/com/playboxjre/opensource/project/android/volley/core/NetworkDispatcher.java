@@ -44,6 +44,7 @@ public class NetworkDispatcher extends Thread{
     @SuppressWarnings({"SingleStatementInBlock"})
     @Override
     public void run() {
+        VolleyLog.d("start network dispatcher thread : " + Thread.currentThread().getId());
         Thread.currentThread().setPriority(Thread.NORM_PRIORITY);
         while (true){
             try {
