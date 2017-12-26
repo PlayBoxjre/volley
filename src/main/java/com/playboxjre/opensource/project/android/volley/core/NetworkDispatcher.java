@@ -101,13 +101,13 @@ public class NetworkDispatcher extends Thread{
             responseDelivery.postResponse(request,response);
             request.notifyListenerResponseReceived(response);
         } catch (VolleyError error) {
-            VolleyError.setNetworkTimeMs(System.currentTimeMillis() - startTime);
+            error.setNetworkTimeMs(System.currentTimeMillis() - startTime);
             parseAndDeliverNetworkError(request,error);
             request.notifyListenerResponseNotUsable();
         }catch (Exception e){
             VolleyLog.e(e, "Unhandled exception %s", e.toString());
             VolleyError volleyError = new VolleyError(e);
-            VolleyError.setNetworkTimeMs(System.currentTimeMillis() - startTime);
+            volleyError.setNetworkTimeMs(System.currentTimeMillis() - startTime);
             responseDelivery.postError(request, volleyError);
             request.notifyListenerResponseNotUsable();
         }

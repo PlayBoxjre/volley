@@ -225,7 +225,7 @@ public abstract class Request<T> implements Comparable<Request<T>>{
 
 
     protected Map<String, String> getParams() throws AuthFailureError {
-        return null;
+        return getHeaders();
     }
 
     protected String getParamsEncoding() {
