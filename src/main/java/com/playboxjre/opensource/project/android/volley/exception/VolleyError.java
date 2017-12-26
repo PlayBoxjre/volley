@@ -34,7 +34,8 @@ public class VolleyError extends Exception {
         networkResponse = null;
     }
 
-    /*package*/void setNetworkTimeMs(long networkTimeMs){
+    /*package*/
+    public static void setNetworkTimeMs(long networkTimeMs){
         this.networkTimeMs = networkTimeMs;
     }
 

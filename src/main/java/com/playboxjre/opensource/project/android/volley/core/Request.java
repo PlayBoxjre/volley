@@ -314,7 +314,7 @@ public abstract class Request<T> implements Comparable<Request<T>>{
         return error;
     }
 
-    abstract protected void deliverResponse(T response);
+    public abstract void deliverResponse(T response);
 
     public void deliverError(VolleyError error){
         Response.ErrorListener listener ;
@@ -325,13 +325,13 @@ public abstract class Request<T> implements Comparable<Request<T>>{
             listener.onErrorResponse(error);
     }
 
-     void setNetworkRequestCompleteListener(NetworkRequestCompleteListener networkRequestCompleteListener) {
+    public void setNetworkRequestCompleteListener(NetworkRequestCompleteListener networkRequestCompleteListener) {
         synchronized (lock) {
             this.networkRequestCompleteListener = networkRequestCompleteListener;
         }
     }
 
-    void notifyListenerResponseReceived(Response<?> response){
+    public void notifyListenerResponseReceived(Response<?> response){
         NetworkRequestCompleteListener requestCompleteListener;
         synchronized (lock){
             requestCompleteListener = networkRequestCompleteListener;
@@ -340,7 +340,7 @@ public abstract class Request<T> implements Comparable<Request<T>>{
             requestCompleteListener.onResponseReceived(this,response);
     }
 
-    void nofityListenerResponseNotUsable(){
+    public void notifyListenerResponseNotUsable(){
         NetworkRequestCompleteListener requestCompleteListener;
         synchronized (lock){
             requestCompleteListener = networkRequestCompleteListener;

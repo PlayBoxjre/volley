@@ -1,7 +1,6 @@
 package com.playboxjre.opensource.project.android.volley.core;
 
 import com.playboxjre.opensource.project.android.volley.VolleyLog;
-import com.playboxjre.opensource.project.android.volley.exception.VolleyError;
 import com.playboxjre.opensource.project.android.volley.interfaces.ResponseDelivery;
 
 import java.util.ArrayList;
@@ -219,8 +218,6 @@ public class CacheDispatcher extends Thread {
                     // Quit the current CacheDispatcher thread.
                     mCacheDispatcher.quit();
                 }
-
-
             }
         }
 
