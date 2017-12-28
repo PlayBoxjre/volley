@@ -1,5 +1,7 @@
 package com.playboxjre.opensource.project.android.volley.core;
 
+import com.playboxjre.opensource.project.android.volley.interfaces.network.Network;
+
 import java.net.HttpURLConnection;
 import java.util.*;
 

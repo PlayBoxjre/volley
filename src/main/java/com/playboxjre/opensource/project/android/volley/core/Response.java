@@ -2,6 +2,7 @@ package com.playboxjre.opensource.project.android.volley.core;
 
 
 import com.playboxjre.opensource.project.android.volley.exception.VolleyError;
+import com.playboxjre.opensource.project.android.volley.interfaces.cache.Cache;
 
 /**
  * Encapsulates a parsed response for delivery.

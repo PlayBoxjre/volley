@@ -1,4 +1,6 @@
-package com.playboxjre.opensource.project.android.volley.core;
+package com.playboxjre.opensource.project.android.volley.interfaces.cache;
+
+import com.playboxjre.opensource.project.android.volley.core.Header;
 
 import java.util.Collections;
 import java.util.List;

@@ -108,7 +108,7 @@ public class VolleyLog {
             mFinished = true;
 
             long duration = getTotalDuration();
-            if (duration <= MIN_DURATION_FOR_LOGGING_MS) {
+            if (duration <  MIN_DURATION_FOR_LOGGING_MS) {
                 return;
             }
 
@@ -119,6 +119,7 @@ public class VolleyLog {
                 d("(+%-4d) [%2d] %s", (thisTime - prevTime), marker.thread, marker.name);
                 prevTime = thisTime;
             }
+            mMarkers.clear();
         }
 
         @Override

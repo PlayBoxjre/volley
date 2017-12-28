@@ -2,6 +2,7 @@ package com.playboxjre.opensource.project.android.volley.core;
 
 import com.playboxjre.opensource.project.android.volley.VolleyLog;
 import com.playboxjre.opensource.project.android.volley.interfaces.ResponseDelivery;
+import com.playboxjre.opensource.project.android.volley.interfaces.cache.Cache;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -144,6 +145,7 @@ public class CacheDispatcher extends Thread {
                     public void run() {
                         try {
                             //再次放入网络请求队列，等待请求
+                            request.addMarker("cache-hit-refresh-needed-put-network");
                             networkQueue.put(request);
                         } catch (InterruptedException e) {
                             // Restore the interrupted status
@@ -158,6 +160,7 @@ public class CacheDispatcher extends Thread {
                 delivery.postResponse(request,response);
             }
         }
+
     }
 
 

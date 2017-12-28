@@ -1,8 +1,8 @@
 package com.playboxjre.opensource.project.android.volley.core;
 
-import com.playboxjre.opensource.project.android.volley.VolleyLog;
 import com.playboxjre.opensource.project.android.volley.interfaces.ExecutorDelivery;
 import com.playboxjre.opensource.project.android.volley.interfaces.ResponseDelivery;
+import com.playboxjre.opensource.project.android.volley.interfaces.cache.Cache;
 import com.playboxjre.opensource.project.android.volley.interfaces.network.Network;
 
 import java.util.*;
@@ -124,7 +124,7 @@ public class RequestQueue {
         cancelAll(new RequestFilter() {
             @Override
             public boolean apply(Request<?> request) {
-                return request.getTag() == null;
+                return request.getTag() == tag;
             }
         });
     }

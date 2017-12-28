@@ -3,6 +3,7 @@ package com.playboxjre.opensource.project.android.volley.core;
 import com.playboxjre.opensource.project.android.volley.VolleyLog;
 import com.playboxjre.opensource.project.android.volley.exception.AuthFailureError;
 import com.playboxjre.opensource.project.android.volley.exception.VolleyError;
+import com.playboxjre.opensource.project.android.volley.interfaces.cache.Cache;
 import com.playboxjre.opensource.project.android.volley.interfaces.retry.DefaultRetryPolicy;
 import com.playboxjre.opensource.project.android.volley.interfaces.retry.RetryPolicy;
 
@@ -41,7 +42,7 @@ public abstract class Request<T> implements Comparable<Request<T>>{
 
     private final int method;
     private final String url;
-    /**Default tag for {@link TrafficStats} 程序流量状态*/
+    /**Default tag for程序流量状态*/
     private final int defaultTrafficStatsTag;
 
     private final Object lock = new Object();
@@ -91,7 +92,6 @@ public abstract class Request<T> implements Comparable<Request<T>>{
         this.errorListener = listener;
         setRetryPolicy(new DefaultRetryPolicy());
         this.defaultTrafficStatsTag = findDefaultTrafficStatsTag(url);
-
     }
 
     public int getMethod(){
@@ -153,6 +153,7 @@ public abstract class Request<T> implements Comparable<Request<T>>{
             markerLog.add(tag, threadId);
             markerLog.finish(this.toString());
         }
+
     }
 
     public Request<?> setRequestQueue(RequestQueue requestQueue){
@@ -204,25 +205,6 @@ public abstract class Request<T> implements Comparable<Request<T>>{
     public Map<String, String> getHeaders() throws AuthFailureError {
         return Collections.emptyMap();
     }
-
-    @Deprecated
-    protected Map<String, String> getPostParams() throws AuthFailureError {
-        return getParams();
-    }
-
-    @Deprecated
-    protected String getPostParamsEncoding() {
-        return getParamsEncoding();
-    }
-
-    /**
-     * @deprecated Use {@link #getBodyContentType()} instead.
-     */
-    @Deprecated
-    public String getPostBodyContentType() {
-        return getBodyContentType();
-    }
-
 
     protected Map<String, String> getParams() throws AuthFailureError {
         return getHeaders();
@@ -314,7 +296,7 @@ public abstract class Request<T> implements Comparable<Request<T>>{
         return error;
     }
 
-    public abstract void deliverResponse(T response);
+    protected abstract void deliverResponse(T response);
 
     public void deliverError(VolleyError error){
         Response.ErrorListener listener ;

@@ -3,12 +3,13 @@ package com.playboxjre.opensource.project.android.volley.core;
 import com.playboxjre.opensource.project.android.volley.VolleyLog;
 import com.playboxjre.opensource.project.android.volley.exception.VolleyError;
 import com.playboxjre.opensource.project.android.volley.interfaces.ResponseDelivery;
+import com.playboxjre.opensource.project.android.volley.interfaces.cache.Cache;
 import com.playboxjre.opensource.project.android.volley.interfaces.network.Network;
 
 import java.util.concurrent.BlockingQueue;
 
 /**
- * 提供一个线程从队列中的请求进行网络调度。*
+ * 从网络请求队列中获取请求对象，执行网络请求，解析，和分发返回结果等完成流程。*
   *Requests added to the specified queue are processed from the network via a
  * specified {@link Network} interface. Responses are committed to cache, if
  * eligible, using a specified {@link Cache} interface. Valid responses and

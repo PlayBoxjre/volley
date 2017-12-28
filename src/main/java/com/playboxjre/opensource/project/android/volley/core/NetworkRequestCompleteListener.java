@@ -2,7 +2,7 @@ package com.playboxjre.opensource.project.android.volley.core;
 
 /**
  * Callback to notify when the network request returns.
- * 回调以通知网络请求何时返回
+ *  请求结果完成后，通知结果缓存和等待请求集合如何处理
  */
 public interface NetworkRequestCompleteListener {
 
