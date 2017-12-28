@@ -1,9 +1,9 @@
 package com.playboxjre.opensource.project.android.volley.toolbox;
 
 import com.playboxjre.opensource.project.android.volley.VolleyLog;
-import com.playboxjre.opensource.project.android.volley.core.Cache;
 import com.playboxjre.opensource.project.android.volley.core.Header;
 import com.playboxjre.opensource.project.android.volley.core.NetworkResponse;
+import com.playboxjre.opensource.project.android.volley.interfaces.cache.Cache;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -19,7 +19,7 @@ import java.util.*;
 public class HttpHeaderParser {
     static final String HEADER_CONTENT_TYPE = "Content-Type";
     private static final String DEFAULT_CONTENT_CHARSET = "ISO-8859-1";
-    private static final String RFC1123_FORMAT = "EEE, dd MMM yyyy HH:mm::ss zzz";
+    private static final String RFC1123_FORMAT = "EEE, dd MMM yyyy HH:mm:ss zzz";
 
     public static Cache.Entry parseCacheHeaders(NetworkResponse response){
         long now = System.currentTimeMillis();

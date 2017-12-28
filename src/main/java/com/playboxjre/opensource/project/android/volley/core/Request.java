@@ -206,11 +206,11 @@ public abstract class Request<T> implements Comparable<Request<T>>{
         return Collections.emptyMap();
     }
 
-    protected Map<String, String> getParams() throws AuthFailureError {
-        return getHeaders();
+    public Map<String, String> getParams() throws AuthFailureError {
+        return null;
     }
 
-    protected String getParamsEncoding() {
+    public String getParamsEncoding() {
         return DEFAULT_PARAMS_ENCODING;
     }
 
@@ -296,7 +296,7 @@ public abstract class Request<T> implements Comparable<Request<T>>{
         return error;
     }
 
-    protected abstract void deliverResponse(T response);
+    public abstract void deliverResponse(T response);
 
     public void deliverError(VolleyError error){
         Response.ErrorListener listener ;

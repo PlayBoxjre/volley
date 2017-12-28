@@ -5,6 +5,9 @@ import com.playboxjre.opensource.project.android.volley.core.Request;
 import com.playboxjre.opensource.project.android.volley.core.Response;
 
 import java.io.UnsupportedEncodingException;
+import java.util.Collections;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * PROJECT     :   opensource-project
@@ -15,9 +18,15 @@ import java.io.UnsupportedEncodingException;
  */
 public class StringRequest extends Request<String> {
 
+    private Map<String,String> params ;
     private final Object lock = new Object();
 
     private Response.Listener<String> listener;
+
+    public StringRequest(int method, String url, Map<String,String> params,Response.Listener<String> listener, Response.ErrorListener errorListener){
+        this(method,url,listener,errorListener);
+        this.params = params;
+    }
 
     public StringRequest(int method, String url, Response.Listener<String> listener, Response.ErrorListener errorListener){
         super(method,url,errorListener);
@@ -44,6 +53,8 @@ public class StringRequest extends Request<String> {
         } catch (UnsupportedEncodingException e) {
             parsed = new String(response.data);
         }
+        Response<String> success = Response.success(parsed, HttpHeaderParser.parseCacheHeaders(response));
+        System.out.println("successs to "+ success);
         return Response.success(parsed,HttpHeaderParser.parseCacheHeaders(response));
     }
 
@@ -57,5 +68,12 @@ public class StringRequest extends Request<String> {
             listener.onResponse(response);
     }
 
+    @Override
+    public Map<String, String> getParams() {
+        return Objects.isNull(params)? Collections.emptyMap():params;
+    }
 
+    public void setParams(Map<String, String> params) {
+        this.params = params;
+    }
 }

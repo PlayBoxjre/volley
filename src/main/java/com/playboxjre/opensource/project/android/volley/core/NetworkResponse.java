@@ -113,7 +113,7 @@ public class NetworkResponse {
         if(allHeaders == null){
             return null;
         }
-        if (allHeaders == null){
+        if (allHeaders.isEmpty()){
             return Collections.emptyMap();
         }
         Map<String,String> headers = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
