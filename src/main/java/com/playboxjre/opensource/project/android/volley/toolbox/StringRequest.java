@@ -54,7 +54,7 @@ public class StringRequest extends Request<String> {
             parsed = new String(response.data);
         }
         Response<String> success = Response.success(parsed, HttpHeaderParser.parseCacheHeaders(response));
-        System.out.println("successs to "+ success);
+        //System.out.println("successs to "+ success);
         return Response.success(parsed,HttpHeaderParser.parseCacheHeaders(response));
     }
 

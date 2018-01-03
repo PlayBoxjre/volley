@@ -82,7 +82,7 @@ public class ExecutorDelivery implements ResponseDelivery{
 
             // Deliver a normal response or error, depending.
             if (response.isSuccess()) {
-                System.out.println("response success result : " + response.result);
+             //   System.out.println("response success result : " + response.result);
                 request.deliverResponse(response.result);
             } else {
                 request.deliverError(response.volleyError);
